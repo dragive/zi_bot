@@ -1,17 +1,15 @@
 var stop =0
-function clickField(number){
+ function clickField(number){
 	document.getElementById('gardenTile'+number).click();
 }
 
-function getWatering(){
+ function getWatering(){
     document.getElementById("giessen").click();
 }
 
-async function getCarrot(){
+ function getCarrot(){
     document.getElementById("regal_6").click();
 }
-
-
 
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
@@ -72,16 +70,17 @@ async function core(){
 
   async function main() {
     
-    let i =3
+    let i =1000
     while(i>0){
         if(stop)
             {
                 break;
             }
         await clickField(1)
+        await sleep(2000)
         await core()
+        i = i-1
     }
     
 
 }
-await main()
